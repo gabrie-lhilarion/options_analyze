@@ -1,10 +1,7 @@
 (function () {
-    let click_on_body = document.querySelector('body');
-    let verigate = function () {
-        document.querySelectorAll('#analyze-table tr').forEach( function () {
 
-        });
-    }
+    let click_on_body = document.querySelector('body');
+
     click_on_body.addEventListener('click', function(e) {
 
         if(e.target.id == 'start-here') {
@@ -26,7 +23,7 @@
             document.getElementById('tt_cols').style.display = 'inline-block';
         }
 
-        if(e.target.id == 'add_column'){
+        if(e.target.id == 'add_column') {
             let rows = document.querySelectorAll('.analyze-row');
             rows.forEach( function (x) {
                 let y = document.createElement('td');
@@ -43,7 +40,7 @@
             document.getElementById('tt_cols').innerText = `${document.querySelectorAll('#tblhead td').length - 1} tickets`; 
         }
 
-        if(e.target.id == 'add_row'){
+        if(e.target.id == 'add_row') {
             let cols = document.querySelectorAll('#tblhead td').length;
             let tr = document.createElement('tr');
             tr.classList.add('analyze-row');
@@ -64,11 +61,7 @@
         }
 
     });
-
+    
+    let analyze = document.getElementById('analyze_now');
+    
 })();
-
-/*
- fxn_add_bet_id = function () {
-    //document.getElementById('analyze-table').append(add_bet_id_btn);
- }
-*/
