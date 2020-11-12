@@ -2,7 +2,7 @@
     let click_on_body = document.querySelector('body');
     let verigate = function () {
         document.querySelectorAll('#analyze-table tr').forEach( function () {
-            
+
         });
     }
     click_on_body.addEventListener('click', function(e) {
@@ -22,6 +22,8 @@
             fxn_add_betslip_BTN(); 
             document.getElementById('add_row').style.display = 'inline-block';
             document.getElementById('analyze_now').style.display = 'inline-block';
+            document.getElementById('tt_rows').style.display = 'inline-block';
+            document.getElementById('tt_cols').style.display = 'inline-block';
         }
 
         if(e.target.id == 'add_column'){
@@ -37,7 +39,8 @@
             td.classList.add('options');
             td.innerHTML = '<b> Option </b>';
             document.getElementById('tblhead').appendChild(td);
-            fxn_add_betslip_BTN(); 
+            fxn_add_betslip_BTN();
+            document.getElementById('tt_cols').innerText = `${document.querySelectorAll('#tblhead td').length - 1} tickets`; 
         }
 
         if(e.target.id == 'add_row'){
@@ -53,7 +56,11 @@
                 other_tds.innerHTML = '<input type="text">'; 
                 tr.appendChild(other_tds);
             }
+
             document.querySelector('#analyze-table').append(tr);
+
+            document.getElementById('tt_rows').innerText = `${document.querySelectorAll('.code').length} events`
+            
         }
 
     });

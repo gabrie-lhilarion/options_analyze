@@ -37,7 +37,6 @@
     #code,
     .code {
         width: 50px;
-       
     }
 
     #add_row {
@@ -63,6 +62,14 @@
         text-align: center;
         cursor: pointer;
     }
+
+    #tt_rows,
+    #tt_cols {
+        font-weight: bold;
+        margin: 1px 10px;
+        display: none;
+    }
+
     </style>
 </head>
 <body>
@@ -74,6 +81,9 @@
     </table>
     <span id="add_row"> Add bet id row</span>
     <span id="analyze_now"> Analyze</span>
+
+    <span id="tt_rows">2 events</span>
+    <span id="tt_cols">2 tickets</span>
     <script src="analyze.js"></script>
 </body>
 </html>
