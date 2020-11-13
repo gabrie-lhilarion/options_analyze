@@ -88,8 +88,16 @@
             
         }
         
-        if(e.target.tagName == 'INPUT') {
-             
+        if(e.target.tagName == 'INPUT' && e.target.className != 'code') {
+            let all_inputs = document.querySelectorAll('#analyze-table input[type=text]');
+            all_inputs.forEach( function (x) {
+                if(x.className != 'code'){ x.style.backgroundColor = 'white';}
+            });
+            e.target.value = `${e.target.parentElement.parentElement.classList[0]} : ${e.target.parentElement.className}`;
+            let affected_area = document.querySelectorAll(`.${e.target.parentElement.parentElement.classList[0]} td, .${e.target.parentElement.className}`);
+            affected_area.forEach( function (x) {
+              if(x.firstElementChild.className != 'code'){ x.firstElementChild.style.backgroundColor = 'bisque';} 
+            });  
         }
     });
 
