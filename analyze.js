@@ -1,4 +1,17 @@
 (function () {
+    let rec_options = ['Over H(0.5)', 'Over A(0.5)', 'Over H(1.5)', 'Over A(1.5)', 'Over 1.5', 'Over 2.5', 'Over 5.5 Coners',
+                       'Over 6.5 Coners', 'GG', 'NG', 'X', 'X or GG', 'X or Over 1.5', 'X or Over 2.5', 'X2', '1X',
+                       'Yes, Home Score', 'No, Home score', 'Yes, Away score', 'YHWEH','YAWEH',
+                       'No Away score' ];
+
+    let risky_options = ['GG 2+', 'X & GG', 'GG & Over 2.5', '0-1', '0-2', '0-3', '0-4', '1-0', '2-0', '3-0', '4-0', '1-1', 
+                        '1-2', '1-3', '1-4', '2-1', '2-2', '2-3', '2-4', '3-1','3-2', '3-3', '3-4', '4-1', '4-2', '4-3', 
+                        '4-4', 'Other'];
+    
+    let rec_correction = {
+        "GG 2+" : { "Advice" : "", "rec_options" : [ 'GG & Over 2.5', 'Over A(1.5)', 'Over H(1.5)', 'Over 2.5', 'GG' ] },
+        
+    }                    
 
     let click_on_body = document.querySelector('body');
 
@@ -62,6 +75,6 @@
 
     });
     
-    let analyze = document.getElementById('analyze_now');
+    
     
 })();
