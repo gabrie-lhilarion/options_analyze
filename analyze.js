@@ -4,13 +4,21 @@
                        'Yes, Home Score', 'No, Home score', 'Yes, Away score', 'YHWEH','YAWEH',
                        'No Away score' ];
 
-    let risky_options = ['GG 2+', 'X & GG', 'GG & Over 2.5', '0-1', '0-2', '0-3', '0-4', '1-0', '2-0', '3-0', '4-0', '1-1', 
+    let risky_options = ['GG 2', 'X & GG', 'GG & Over 2.5', '0-1', '0-2', '0-3', '0-4', '1-0', '2-0', '3-0', '4-0', '1-1', 
                         '1-2', '1-3', '1-4', '2-1', '2-2', '2-3', '2-4', '3-1','3-2', '3-3', '3-4', '4-1', '4-2', '4-3', 
                         '4-4', 'Other'];
     
     let rec_correction = {
-        "GG 2+" : { "Advice" : "", "rec_options" : [ 'GG & Over 2.5', 'Over A(1.5)', 'Over H(1.5)', 'Over 2.5', 'GG' ] },
-        
+        "GG_2" : { "Advice" : "If you think that two teams are stong enough to score goals also remember that their strength may lead to a stalemate", 
+                    "rec_options" : [ 'GG & Over 2.5', 'Over A(1.5)', 'Over H(1.5)', 'Over 2.5', 'GG' ] 
+                  },
+        "correct_score" : {"Advice" : "Correct scores are the highest risk games and better played as a single game",
+                           "rec_options" : " "
+                          }, 
+        "X_&_GG" : { "Advice" : "Correct scores are the highest risk games and better played as a single game",
+                    "rec_options" : ['Over 1.5', 'X or Over 2.5', 'X2', '1X', 'GG']
+                    }                        
+
     }                    
 
     let click_on_body = document.querySelector('body');
