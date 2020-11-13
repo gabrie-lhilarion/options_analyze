@@ -21,11 +21,21 @@
         "X_&_GG" : { "Advice" : "Correct scores are the highest risk games and better played as a single game",
                     "rec_options" : ['Over 1.5', 'X or Over 2.5', 'X2', '1X', 'GG']
                     }                        
-    }                    
+    } 
+    
+    let inner_el = `
+    <span id="delete_row" class="action_choice border_btm_1">delete row</span>
+    <span id="delete_column" class="action_choice border_btm_1">delete column</span>
+    <span id="delete_both" class="action_choice border_btm_1">delete both</span>
+    <span id="cancel_delete"> close </span>
+    `;
 
     let click_on_body = document.querySelector('body');
 
+    let active_row, active_olumn;
+
     click_on_body.addEventListener('click', function(e) {
+        
 
         if(e.target.id == 'start-here') {
             e.target.style.display = 'none';
@@ -87,19 +97,56 @@
             document.getElementById('tt_rows').innerText = `${document.querySelectorAll('.code').length} events`
             
         }
-        
-        if(e.target.tagName == 'INPUT' && e.target.className != 'code') {
+
+        let fxn_remove_highlight = function () {
+                
+            if( document.getElementById('actions_pop') ) { document.getElementById('actions_pop').remove(); }
             let all_inputs = document.querySelectorAll('#analyze-table input[type=text]');
+
             all_inputs.forEach( function (x) {
                 if(x.className != 'code'){ x.style.backgroundColor = 'white';}
             });
-            e.target.value = `${e.target.parentElement.parentElement.classList[0]} : ${e.target.parentElement.className}`;
+
+        }
+        
+        if(e.target.tagName == 'INPUT' && e.target.className != 'code') {
+
+            active_row = e.target.parentElement.parentElement.classList[0]; 
+            
+            active_olumn = e.target.parentElement.className;
+
+            fxn_remove_highlight();
+
             let affected_area = document.querySelectorAll(`.${e.target.parentElement.parentElement.classList[0]} td, .${e.target.parentElement.className}`);
+            
             affected_area.forEach( function (x) {
               if(x.firstElementChild.className != 'code'){ x.firstElementChild.style.backgroundColor = 'bisque';} 
-            });  
+            }); 
+
+            const actions_pop = document.createElement('div');
+            actions_pop.setAttribute('id','actions_pop')
+            actions_pop.innerHTML = inner_el;
+
+            e.target.parentElement.prepend(actions_pop);
         }
+
+        if(e.target.id == 'cancel_delete'){
+            fxn_remove_highlight();
+        }
+
+        let fxn_delete_row = function (x){
+            document.querySelector(`.${x}`).remove()
+            document.querySelectorAll('analyze-row').forEach(function (x) {
+                // I stopped here 
+               // x.classList.remove()
+            });
+        }
+
+        if(e.target.id == 'delete_row') {
+            fxn_delete_row(active_row);
+        }
+
     });
 
-
+    
 })();

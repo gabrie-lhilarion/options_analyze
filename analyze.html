@@ -24,9 +24,16 @@
 
     #analyze-table,
     #analyze-table tr,
-    #analyze-table td,
-    #analyze-table input[type=text] {
+    #analyze-table td{
         border: none;
+    }
+
+    #analyze-table td{
+        position: relative;
+    }
+
+    #analyze-table input[type=text] {
+        border: solid 1px #ccc;
     }
 
     #analyze-table input[type=text] {
@@ -79,10 +86,34 @@
         font-weight: bold;
         margin: 1px 10px;
         display: none;
+    } 
+    
+    .border_btm_1 {
+        border-bottom: solid 1px #ccc;
     }
 
-    .analyze-row {
-        background-color: black;
+    #actions_pop {
+        position: absolute;
+        width: 90px;
+        height: auto;
+        background-color: #398;
+        color: #fff;
+        left: 6px;
+        top: 20px;
+        z-index: 20000;
+        border-radius: 0px 0px 4px 4px;
+    }
+
+    #actions_pop span {
+        cursor: pointer;
+        display: block;
+        font-size: 0.9em;
+        padding: 4px; 
+    }
+
+    #cancel_delete {
+        background-color: #ccc;
+        color: #000;
     }
 
     </style>
