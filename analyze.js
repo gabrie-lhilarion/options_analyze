@@ -98,9 +98,9 @@
             td.innerHTML = '<input class="code"  style="width:200px; type="text">';
             tr.appendChild(td);
 
-            for($i=1; $i<cols; $i++) {
+            for(let c=1; c<cols; c++) {
                 let other_tds = document.createElement('td');
-                other_tds.classList.add('col_'+ $i)
+                other_tds.classList.add('col_'+ c)
                 other_tds.innerHTML = '<input type="text">';
                 tr.appendChild(other_tds);
             }
@@ -242,6 +242,7 @@
 
             });
         }
+   
 
     });
   
@@ -285,9 +286,5 @@
         });
    }
     
-   click_on_body.addEventListener('mouseenter', function (e) {
-       if(e.target.tagName == 'INPUT') {
-           alert('Mouse entered input');
-       }
-   });
+
 })();
