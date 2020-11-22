@@ -34,7 +34,7 @@
     <span id="cancel_delete"> close </span>
     `;
 
-    let click_on_body = document.querySelector('body');
+    let click_on_main = document.getElementById('main-container');
 
     let active_row, active_column;
 
@@ -46,7 +46,7 @@
         document.getElementById('tt_cols').innerText = `${document.querySelectorAll('#tblhead td').length - 1} tickets`;
     }
 
-    click_on_body.addEventListener('click', function(e) {
+    click_on_main.addEventListener('click', function(e) {
 
 
         if(e.target.id == 'start-here') {
